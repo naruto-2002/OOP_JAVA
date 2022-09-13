@@ -2,36 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.codeptit;
+package danh_sach_thuc_tap_1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
  *
  * @author Nguyen Cong Van
  */
-class Student {
-    String code, name, clas, email;
-    
-    Student() {}
-    
-    void input(Scanner sc) {
-        code = sc.nextLine();
-        name = sc.nextLine();
-        clas = sc.nextLine();
-        email = sc.nextLine();
-    }
-    
-    
-    @Override
-    public String toString() {
-        return code + " " + name + " " + clas + " " + email;
-    }
-    
-    
-}
-public class Liet_ke_sinh_vien_theo_khoa {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
@@ -42,37 +23,54 @@ public class Liet_ke_sinh_vien_theo_khoa {
             sv.input(sc);
             res.add(sv);
         }
+        Collections.sort(res, (Student sv1, Student sv2) -> {
+            if(sv1.code.compareTo(sv2.code) > 0) return 1;
+            return -1;
+        });
+        
         int tt = sc.nextInt();
         while(tt-- > 0) {
             String s = sc.next();
-            System.out.println("DANH SACH SINH VIEN KHOA " + s + ":");
             for(Student sv : res) {
-                if(sv.clas.substring(1, 3).compareTo(s.substring(2, 4)) == 0) {
+                if(sv.enterprise.compareTo(s) == 0) {
                     System.out.println(sv);
                 }
             }
         }
     }
 }
-
 /*
-4
-B16DCCN011
-Nguyen Trong Duc Anh
-D16CNPM1
-sv1@stu.ptit.edu.vn
-B15DCCN215
-To Ngoc Hieu
-D15CNPM3
-sv2@stu.ptit.edu.vn
-B15DCKT150
-Nguyen Ngoc Son
-D15CQKT02-B
-sv3@stu.ptit.edu.vn
-B15DCKT199
-Nguyen Trong Tung
-D15CQKT02-B
-sv4@stu.ptit.edu.vn
+6
+B17DCCN016 
+Le Khac Tuan Anh 
+D17HTTT2   
+test1@stu.ptit.edu.vn
+VIETTEL
+B17DCCN107 
+Dao Thanh Dat    
+D17CNPM5   
+test2@stu.ptit.edu.vn
+FPT
+B17DCAT092 
+Cao Danh Huy     
+D17CQAT04-B
+test3@stu.ptit.edu.vn
+FPT
+B17DCCN388 
+Cao Sy Hai Long  
+D17CNPM2   
+test4@stu.ptit.edu.vn
+VNPT
+B17DCCN461 
+Dinh Quang Nghia 
+D17CNPM2   
+test5@stu.ptit.edu.vn
+FPT
+B17DCCN554 
+Bui Xuan Thai    
+D17CNPM1   
+test6@stu.ptit.edu.vn
+GAMELOFT
 1
-2015
+FPT
 */
