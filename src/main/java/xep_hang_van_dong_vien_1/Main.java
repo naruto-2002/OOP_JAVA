@@ -26,6 +26,9 @@ public class Main {
         }
         Collections.sort(res, (Athlete vdv1, Athlete vdv2) -> {
             if(vdv1.time - vdv1.second() > vdv2.time - vdv2.second()) return 1;
+            else if(vdv1.time - vdv1.second() == vdv2.time - vdv2.second()) {
+                if(vdv1.code.compareTo(vdv2.code) > 0) return 1;
+            }
             return -1;
         });
         int cnt = 1;
@@ -49,10 +52,10 @@ Nguyen Van Thanh
 20/03/1990
 07:00:00
 07:10:01
-Nguyen Hoa Binh
-01/10/1993
-07:02:00
-07:11:20
+Nguyen Van Thanh
+20/03/1990
+07:00:00
+07:10:01
 Le Thanh Van
 15/03/1998
 07:05:00
