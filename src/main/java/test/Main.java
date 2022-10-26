@@ -7,6 +7,8 @@ package test;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import static java.util.Arrays.sort;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
@@ -21,21 +23,19 @@ import java.util.TreeMap;
  * @author Nguyen Cong Van
  */
 public class Main {
-    public static void main(String[] args) {
-        List<Integer> res = new ArrayList<>();
-        
-        res.add(1);
-        res.add(3);
-        res.add(2);
-        res.add(0);
-        
-        Collections.sort(res);
-        
-        for(Integer i: res) {
-            System.out.println(i);
-        }
-      
+    public static void main(String[] args) throws ParseException {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+       int arr[] = new int[n];
+       for(int i = 0; i < n; i++) arr[i] = sc.nextInt();
+       sort(arr);
+       int index = Arrays.binarySearch(arr, 4);
+        System.out.println(index);
        
+      
+    
     }
+
+   
 
 }
