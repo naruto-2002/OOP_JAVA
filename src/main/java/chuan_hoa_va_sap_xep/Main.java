@@ -16,7 +16,8 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("DANHSACH.in"));
+        String fname = "D:\\Documents\\nam_3_ki_1\\lap_trinh_huong_doi_tuong_java\\CodePtit\\src\\main\\java\\chuan_hoa_va_sap_xep\\DANHSACH.in";
+        Scanner sc = new Scanner(new File(fname));
         ArrayList<Person> res = new ArrayList<>();
         while(sc.hasNext()) {
             String s = sc.nextLine();

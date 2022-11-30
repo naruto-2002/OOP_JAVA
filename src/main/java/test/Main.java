@@ -4,38 +4,39 @@
  */
 package test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import static java.util.Arrays.sort;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
+import static java.util.Collections.sort;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
 
 /**
  *
  * @author Nguyen Cong Van
  */
 public class Main {
-    public static void main(String[] args) throws ParseException {
-       Scanner sc = new Scanner(System.in);
-       int n = sc.nextInt();
-       int arr[] = new int[n];
-       for(int i = 0; i < n; i++) arr[i] = sc.nextInt();
-       sort(arr);
-       int index = Arrays.binarySearch(arr, 4);
-        System.out.println(index);
-       
-      
-    
+    public static int gcd(int a, int b) {
+        int tmp;
+        while(b!=0) {
+            tmp = a%b;
+            a = b;
+            b = tmp;
+        }
+        return a;
     }
-
-   
-
+    public static void main(String[] args) {
+        List<Pair> lp = IOFile.read("DATA.in");
+        List<Pair> res = new ArrayList<>();
+        for(Pair p: lp) {
+            if(p.getFirst() < p.getSecond() && gcd(p.getFirst(), p.getSecond()) == 1) {
+                res.add(p);
+            }
+        }
+        sort(res);
+        Pair tmp = null;
+        for(Pair p: res) {
+            if(!p.equals(tmp)) {
+                System.out.println(p);
+            }
+            tmp = p;
+        }
+    }
 }
